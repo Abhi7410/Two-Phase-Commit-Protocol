@@ -1,0 +1,2 @@
+Ready===b8987368-cc3d-46d7-b799-2bec9b80e56c===select name from student_table where placement_company='Google';
+Commit===b8987368-cc3d-46d7-b799-2bec9b80e56c===select name from student_table where placement_company='Google';

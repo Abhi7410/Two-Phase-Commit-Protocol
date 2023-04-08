@@ -1,0 +1,35 @@
+CREATE USER 'ds'@'localhost' IDENTIFIED BY 'Distributed@123';
+GRANT ALL PRIVILEGES ON * . * TO 'ds'@'localhost';
+FLUSH PRIVILEGES;
+
+login as user 'ds' 
+mysql -uds -pDistributed@123
+
+4 databases , one each for 
+1. coordinator
+2. clientA
+3. clientB
+4. clientC
+
+
+CREATE TABLE student_table(  
+    id int NOT NULL AUTO_INCREMENT,  
+    name varchar(45) NOT NULL,  
+    branch varchar(35) NOT NULL,  
+    age int NOT NULL,  
+    placement_company varchar(45),
+    PRIMARY KEY (id)  
+);
+
+Example Queries: 
+1. INSERT INTO student_table (name, branch, age, placement_company) VALUES ('John', 'CSE', 21, 'Google');
+2. Select * from student_table where age > 21;
+3. Select name from student_table where placement_company='Google';
+
+
+
+Ports:
+Coordinator : 5000
+site1 : 5124
+site2 : 5125
+site3 : 5126

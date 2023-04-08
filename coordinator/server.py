@@ -9,6 +9,9 @@ import pandas as pd
 import uuid
 import colorama
 from colorama import Fore, Back, Style
+import logging 
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 # uuid = universally unique identifier (unique id for each transation)
 app = Flask(__name__)
@@ -77,7 +80,6 @@ class Coordinator:
         print(data)
         try:
             response = requests.post(currentURL, json = data)
-            print(response)
             status_ = response.json()['status']
             print(status_)
             if (status_ == ("READY "+query)):
@@ -147,6 +149,7 @@ class Coordinator:
         else:
             return jsonify({"decision": "UNKNOWN"})
         
+        
     def ExecuteAll(self):
         time.sleep(2)
         while True:
@@ -164,11 +167,21 @@ class Coordinator:
 
 
 if __name__ == '__main__':
-    nodes = ["http://localhost:5124"]
+    nodes = ["http://localhost:5124","http://localhost:5125"]
+    nodeIds = ["5124","5125"]
     coord = Coordinator("log.txt","localhost","ds","Distributed@123","coordinator",nodes)
     th = threading.Thread(target=coord.ExecuteAll, args=())
+    print(Fore.YELLOW + "Coordinator is running" + Fore.RESET)
+    print(Fore.YELLOW + "Coordinator is listening on port 5000" + Fore.RESET)
+    for i in range(len(nodeIds)):
+        # Print out a message for each node
+        print(Fore.GREEN +
+              f"Node {i+1} is listening on port {nodeIds[i]}" + Fore.RESET)
+
+
     th.start()
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    
+    app.run(host='0.0.0.0', port=5000, debug=False,use_reloader=False)
 
 
     

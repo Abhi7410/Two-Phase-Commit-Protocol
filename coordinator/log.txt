@@ -5,3 +5,15 @@ Commit===20263fa8-7adf-4240-b2c4-37dce1409a1b===Select * from student_table wher
 Commit===20263fa8-7adf-4240-b2c4-37dce1409a1b===Select * from student_table where age > 23;
 Prepare===52722c1a-c8c4-420f-9983-f5969d12acde===Select * from student_table where age > 21;
 Commit===52722c1a-c8c4-420f-9983-f5969d12acde===Select * from student_table where age > 21;
+Prepare===9a87e15e-51fd-4e08-abcf-0c20a754d786===Select * from student_table where age > 21;
+Commit===9a87e15e-51fd-4e08-abcf-0c20a754d786===Select * from student_table where age > 21;
+Commit===9a87e15e-51fd-4e08-abcf-0c20a754d786===Select * from student_table where age > 21;
+Prepare===dc83ef6f-efbc-44b2-b39e-aa2b4f92b97d===select * from student_table where age < 22;
+Commit===dc83ef6f-efbc-44b2-b39e-aa2b4f92b97d===select * from student_table where age < 22;
+Commit===dc83ef6f-efbc-44b2-b39e-aa2b4f92b97d===select * from student_table where age < 22;
+Prepare===3baa8e13-814e-4f19-bfe1-755dee5083fb===select name from student_table where placement_company='Google';
+Commit===3baa8e13-814e-4f19-bfe1-755dee5083fb===select name from student_table where placement_company='Google';
+Abort===3baa8e13-814e-4f19-bfe1-755dee5083fb===select name from student_table where placement_company='Google';
+Prepare===b8987368-cc3d-46d7-b799-2bec9b80e56c===select name from student_table where placement_company='Google';
+Commit===b8987368-cc3d-46d7-b799-2bec9b80e56c===select name from student_table where placement_company='Google';
+Commit===b8987368-cc3d-46d7-b799-2bec9b80e56c===select name from student_table where placement_company='Google';
